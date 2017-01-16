@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DCF1754E-3F51-453F-A73F-76D528B5EB61}</ProjectGuid>
+    <RootNamespace>実装例3D鳥瞰視点アクション</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.60610.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+      <BrowseInformation>true</BrowseInformation>
+    </ClCompile>
+    <Link>
+      <IgnoreSpecificDefaultLibraries>LIBMCT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <FxCompile>
+      <ShaderType>Effect</ShaderType>
+    </FxCompile>
+    <FxCompile>
+      <ShaderModel>5.0</ShaderModel>
+    </FxCompile>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <BrowseInformation>true</BrowseInformation>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>LIBMCT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+    <FxCompile>
+      <ShaderType>Effect</ShaderType>
+    </FxCompile>
+    <FxCompile>
+      <ShaderModel>5.0</ShaderModel>
+    </FxCompile>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="00 Source File\CD3DXMESH.cpp" />
+    <ClCompile Include="00 Source File\CD3DXSKINMESH.cpp" />
+    <ClCompile Include="00 Source File\CharacterBase.cpp" />
+    <ClCompile Include="00 Source File\Collision.cpp" />
+    <ClCompile Include="00 Source File\CThread.cpp" />
+    <ClCompile Include="00 Source File\D3D11_SPRITE.cpp" />
+    <ClCompile Include="00 Source File\D3D11_TEXT.cpp" />
+    <ClCompile Include="00 Source File\Frustum.cpp" />
+    <ClCompile Include="00 Source File\InitStage1.cpp" />
+    <ClCompile Include="00 Source File\Init_Opening.cpp" />
+    <ClCompile Include="00 Source File\Opening.cpp" />
+    <ClCompile Include="00 Source File\Enemy.cpp" />
+    <ClCompile Include="00 Source File\Player.cpp" />
+    <ClCompile Include="00 Source File\ShadowMap.cpp" />
+    <ClCompile Include="00 Source File\UpdateLabel.cpp" />
+    <ClCompile Include="00 Source File\WINDOW.cpp" />
+    <ClCompile Include="00 Source File\DIRECT3D11.cpp" />
+    <ClCompile Include="00 Source File\CAMERA.cpp" />
+    <ClCompile Include="00 Source File\DIRECTOR.cpp" />
+    <ClCompile Include="00 Source File\Stage1.cpp" />
+    <ClCompile Include="00 Source File\BASE.cpp" />
+    <ClCompile Include="00 Source File\SOUND.cpp" />
+    <ClCompile Include="00 Source File\CD3DXMESH_ANIM.cpp" />
+    <ClCompile Include="00 Source File\Entry.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="00 Source File\CD3DXMESH.h" />
+    <ClInclude Include="00 Source File\CD3DXSKINMESH.h" />
+    <ClInclude Include="00 Source File\CharacterBase.h" />
+    <ClInclude Include="00 Source File\Collision.h" />
+    <ClInclude Include="00 Source File\CThread.h" />
+    <ClInclude Include="00 Source File\D3D11_SPRITE.h" />
+    <ClInclude Include="00 Source File\D3D11_TEXT.h" />
+    <ClInclude Include="00 Source File\Enemy.h" />
+    <ClInclude Include="00 Source File\Frustum.h" />
+    <ClInclude Include="00 Source File\Init_Opening.h" />
+    <ClInclude Include="00 Source File\Player.h" />
+    <ClInclude Include="00 Source File\ShadowMap.h" />
+    <ClInclude Include="00 Source File\UpdateLabel.h" />
+    <ClInclude Include="00 Source File\WINDOW.h" />
+    <ClInclude Include="00 Source File\DIRECT3D11.h" />
+    <ClInclude Include="00 Source File\CAMERA.h" />
+    <ClInclude Include="00 Source File\DIRECTOR.h" />
+    <ClInclude Include="00 Source File\BASE.h" />
+    <ClInclude Include="00 Source File\SOUND.h" />
+    <ClInclude Include="00 Source File\CD3DXMESH_ANIM.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="03 Shader File\D3D11_TEXT.hlsl" />
+    <FxCompile Include="03 Shader File\Geometry_Material_Texture_Skin.hlsl" />
+    <FxCompile Include="03 Shader File\MESH.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Effect</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="03 Shader File\Sprite2D.hlsl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

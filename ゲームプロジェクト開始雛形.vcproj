@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="shift_jis"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="ゲームプロジェクト開始雛形"
+	ProjectGUID="{DCF1754E-3F51-453F-A73F-76D528B5EB61}"
+	RootNamespace="実装例3D鳥瞰視点アクション"
+	Keyword="Win32Proj"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="1"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;K_PLUGIN;K_FBXSDK;K_NODLL;KFBX_DLLINFO"
+				MinimalRebuild="true"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="true"
+				DebugInformationFormat="4"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				LinkIncremental="2"
+				IgnoreDefaultLibraryNames="LIBMCT"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCWebDeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="1"
+			CharacterSet="1"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
+				RuntimeLibrary="2"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="true"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				LinkIncremental="1"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCWebDeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="Window Class"
+			>
+			<File
+				RelativePath=".\00 Source File\WINDOW.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\00 Source File\WINDOW.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Direct3D Class"
+			>
+			<File
+				RelativePath=".\00 Source File\DIRECT3D11.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\00 Source File\DIRECT3D11.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Mesh Class"
+			>
+			<File
+				RelativePath=".\00 Source File\CD3DXMESH.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\00 Source File\CD3DXMESH.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Camera Class"
+			>
+			<File
+				RelativePath=".\00 Source File\CAMERA.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\00 Source File\CAMERA.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Director Class"
+			>
+			<File
+				RelativePath=".\00 Source File\DIRECTOR.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\00 Source File\DIRECTOR.h"
+				>
+			</File>
+			<File
+				RelativePath=".\00 Source File\DIRECTOR_Stage1.cpp"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Base Class"
+			>
+			<File
+				RelativePath=".\00 Source File\BASE.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\00 Source File\BASE.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Shader"
+			>
+			<File
+				RelativePath=".\03 Shader File\MESH.hlsl"
+				>
+			</File>
+			<File
+				RelativePath=".\03 Shader File\SKIN.hlsl"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="SkinMesh Class"
+			>
+			<File
+				RelativePath=".\00 Source File\CD3DXSKINMESH.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\00 Source File\CD3DXSKINMESH.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Sound Class"
+			>
+			<File
+				RelativePath=".\00 Source File\SOUND.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\00 Source File\SOUND.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="HierarchyMesh Class"
+			>
+			<File
+				RelativePath=".\00 Source File\CD3DXMESH_ANIM.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\00 Source File\CD3DXMESH_ANIM.h"
+				>
+			</File>
+		</Filter>
+		<File
+			RelativePath=".\00 Source File\Entry.cpp"
+			>
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

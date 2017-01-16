@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Window Class">
+      <UniqueIdentifier>{6db0da5d-d891-470a-8e4d-7021b0ae307f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Direct3D Class">
+      <UniqueIdentifier>{cbf08968-f779-4c12-9b18-d80770bb4ec9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mesh Class">
+      <UniqueIdentifier>{df3d35ca-c184-4d47-98d4-58d1dd8c0481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera Class">
+      <UniqueIdentifier>{7b06d847-25fd-476c-a1f0-f9968407e268}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Director Class">
+      <UniqueIdentifier>{14310309-641e-4ed2-89e2-b861c5c2f2ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base Class">
+      <UniqueIdentifier>{f14513a3-f918-49af-ab13-02f59b720bc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{8c95ce3a-f223-4b76-a2c8-ce9cdbf7385d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound Class">
+      <UniqueIdentifier>{e0de900e-66ca-458f-a083-dd8016ae53ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HierarchyMesh Class">
+      <UniqueIdentifier>{70ef54c6-ef38-498a-879f-6b8f4455ba21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text Class">
+      <UniqueIdentifier>{b00de01d-0d1f-4151-869d-ad28dd1af9e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sprite Class">
+      <UniqueIdentifier>{f1ad5a86-f7ad-4e99-a9fd-d08ec92424e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Thread Class">
+      <UniqueIdentifier>{fcf99621-b994-4585-8472-83a53eb9c0b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player Class">
+      <UniqueIdentifier>{835b30ef-4255-4a68-8f65-fd885b9d40cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy Class">
+      <UniqueIdentifier>{49b0c93c-3da8-4e21-ac16-848ce29c27f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterBase Class">
+      <UniqueIdentifier>{b4e029fa-04fe-45f5-ac2e-50d3e8f94a2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XSkin Class">
+      <UniqueIdentifier>{333788b8-a858-4c86-92a4-043f76c759a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ShadowMap Class">
+      <UniqueIdentifier>{2b936be5-7d86-4975-b036-7f3cdd00f878}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision Class">
+      <UniqueIdentifier>{6aaf2880-6f26-48c6-bca2-ee9ba5f48984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Frustum Class">
+      <UniqueIdentifier>{1c18d3c3-9bb5-40a4-849a-79480bf3eff0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Update Label Class">
+      <UniqueIdentifier>{4b70a850-d7c5-4f6f-b371-e414928b882e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="00 Source File\WINDOW.cpp">
+      <Filter>Window Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\DIRECT3D11.cpp">
+      <Filter>Direct3D Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\CAMERA.cpp">
+      <Filter>Camera Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\DIRECTOR.cpp">
+      <Filter>Director Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\BASE.cpp">
+      <Filter>Base Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\SOUND.cpp">
+      <Filter>Sound Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\CD3DXMESH_ANIM.cpp">
+      <Filter>HierarchyMesh Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\Entry.cpp" />
+    <ClCompile Include="00 Source File\D3D11_TEXT.cpp">
+      <Filter>Text Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\D3D11_SPRITE.cpp">
+      <Filter>Sprite Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\CThread.cpp">
+      <Filter>Thread Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\Player.cpp">
+      <Filter>Player Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\Enemy.cpp">
+      <Filter>Enemy Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\CharacterBase.cpp">
+      <Filter>CharacterBase Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\CD3DXMESH.cpp">
+      <Filter>Mesh Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\CD3DXSKINMESH.cpp">
+      <Filter>XSkin Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\ShadowMap.cpp">
+      <Filter>ShadowMap Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\Opening.cpp">
+      <Filter>Director Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\Stage1.cpp">
+      <Filter>Director Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\InitStage1.cpp">
+      <Filter>Director Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\Collision.cpp">
+      <Filter>Collision Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\Init_Opening.cpp">
+      <Filter>Director Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\Frustum.cpp">
+      <Filter>Frustum Class</Filter>
+    </ClCompile>
+    <ClCompile Include="00 Source File\UpdateLabel.cpp">
+      <Filter>Update Label Class</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="00 Source File\WINDOW.h">
+      <Filter>Window Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\DIRECT3D11.h">
+      <Filter>Direct3D Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\CAMERA.h">
+      <Filter>Camera Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\DIRECTOR.h">
+      <Filter>Director Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\BASE.h">
+      <Filter>Base Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\SOUND.h">
+      <Filter>Sound Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\CD3DXMESH_ANIM.h">
+      <Filter>HierarchyMesh Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\D3D11_TEXT.h">
+      <Filter>Text Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\D3D11_SPRITE.h">
+      <Filter>Sprite Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\CThread.h">
+      <Filter>Thread Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\Player.h">
+      <Filter>Player Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\Enemy.h">
+      <Filter>Enemy Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\CharacterBase.h">
+      <Filter>CharacterBase Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\CD3DXMESH.h">
+      <Filter>Mesh Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\CD3DXSKINMESH.h">
+      <Filter>XSkin Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\ShadowMap.h">
+      <Filter>ShadowMap Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\Collision.h">
+      <Filter>Collision Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\Init_Opening.h">
+      <Filter>Director Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\Frustum.h">
+      <Filter>Frustum Class</Filter>
+    </ClInclude>
+    <ClInclude Include="00 Source File\UpdateLabel.h">
+      <Filter>Update Label Class</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="03 Shader File\MESH.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="03 Shader File\D3D11_TEXT.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="03 Shader File\Sprite2D.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="03 Shader File\Geometry_Material_Texture_Skin.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
