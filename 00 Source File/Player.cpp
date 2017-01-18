@@ -144,12 +144,26 @@ void Player::Update()
 		m_pD3dxMesh->m_hlAnimationList[16]->Speed = 0.015;
 		break;
 
+	case SHIMMY_STATUS:
+		ChangeAnim(17);
+		m_pD3dxMesh->m_hlAnimationList[17]->Speed = 0.015;
+		break;
+
+	case SHIMMY_LEFT_STATUS:
+		ChangeAnim(18);
+		m_pD3dxMesh->m_hlAnimationList[18]->Speed = 0.015;
+		break;
+
+	case SHIMMY_RIGHT_STATUS:
+		ChangeAnim(19);
+		m_pD3dxMesh->m_hlAnimationList[19]->Speed = 0.015;
+		break;
+
 	default:					//通常状態
 		m_pD3dxMesh->m_hlAnimationList[2]->Speed = 0.009;
 		ChangeAnim(2);
 		break;
-	}
-	assert((0 <= m_PlayerStatus && m_PlayerStatus <= 16)&& "XXX:ステータス番号以外の値が入っています");
+	}	assert((0 <= m_PlayerStatus && m_PlayerStatus <= 19)&& "XXX:ステータス番号以外の値が入っています");
 
 	/*立ち上がる(最初のモーション)*/
 	GettingUp();
@@ -217,7 +231,23 @@ void Player::Update()
 
 		PushRock();		//岩を押す
 		PushingRock();	//岩を押す2
-		ClimingEnd();	//崖を登り終える
+		//ClimingEnd();	//崖を登り終える
+
+		if (GetAsyncKeyState('L') && 0x8000)
+		{
+			m_ShimmyFlg = TRUE;
+		}
+		else
+		{
+			m_ShimmyFlg = FALSE;
+		}
+
+		
+
+		Shimmy();		//ぶら下がる
+		ShimmyLeft();
+		ShimmyRight();
+
 		///TODO : 常にyを下げていれば、ガクガクしない
 		/*上の上がる(デバッグキー)*/
 	//	if (GetAsyncKeyState('N') && 0x8000)
@@ -605,4 +635,29 @@ void Player::ClimingEnd()
 	}
 	
 	
+}
+
+void Player::Shimmy()
+{
+	if (m_ShimmyFlg == TRUE)
+	{
+		m_PlayerStatus = SHIMMY_STATUS;
+	}
+}
+
+void Player::ShimmyLeft()
+{
+	if (m_ShimmyFlg == TRUE && GetAsyncKeyState('A'))
+	{
+		m_PlayerStatus = SHIMMY_LEFT_STATUS;
+	}
+
+}
+
+void Player::ShimmyRight()
+{
+	if (m_ShimmyFlg == TRUE && GetAsyncKeyState('D'))
+	{
+		m_PlayerStatus = SHIMMY_RIGHT_STATUS;
+	}
 }

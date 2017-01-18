@@ -135,7 +135,7 @@ HRESULT DIRECTOR::InitStage1()
 	SetVisualDirectory();
 	m_pPlayer = make_shared<Player>();
 	m_pPlayer->InitSM(m_hWnd, DEVICE, DCONTEXT);
-	m_pPlayer->CreateFromX("player17.x");
+	m_pPlayer->CreateFromX("player20.x");
 
 
 

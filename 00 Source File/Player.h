@@ -45,6 +45,12 @@ private:
 		PUSHING_ROCK_STATUS,	//15:岩を押す2(強く押す)
 
 		CLIMING_END_STATUS,		//16:崖を登り終える
+
+		SHIMMY_STATUS,			//17:ぶら下がる
+
+		SHIMMY_LEFT_STATUS,		//18:ぶら下がる左に動く
+
+		SHIMMY_RIGHT_STATUS,	//19:ぶら下がる右に動く
 	};
 	
 
@@ -76,6 +82,7 @@ public:
 	BOOL m_PushNow = FALSE;			//今押しているか
 	BOOL m_PushinFlg = FALSE;		//今押しているか
 	BOOL m_ClimeEndFlg = FALSE;		//登り終えるか
+	BOOL m_ShimmyFlg = FALSE;		//ぶら下がっているか
 
 	float m_GettingUpCount = 0.0f;	//立ち上がる用のモーションカウント
 
@@ -85,7 +92,9 @@ public:
 
 	float KeyPanch = 0.0f;			//岩を押すときの連打カウント
 
-	bool m_OperationPossible = TRUE;
+	bool m_OperationPossible = TRUE;	//操作できる状態かどうか
+
+
 	//============================================================================
 	//メソッド
 	//============================================================================
@@ -145,6 +154,15 @@ public:
 
 	/*崖を登り終える*/
 	void ClimingEnd();
+
+	/*ぶら下がる*/
+	void Shimmy();
+
+	/*ぶら下がる左に動く*/
+	void ShimmyLeft();
+
+	/*ぶら下がる右に動く*/
+	void ShimmyRight();
 
 	float m_AnimFarstCount = 0.0f;
 
