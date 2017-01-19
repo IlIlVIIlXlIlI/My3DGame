@@ -51,6 +51,8 @@ private:
 		SHIMMY_LEFT_STATUS,		//18:ぶら下がる左に動く
 
 		SHIMMY_RIGHT_STATUS,	//19:ぶら下がる右に動く
+
+		FALL_STATUS,			//20:落ちる
 	};
 	
 
@@ -94,7 +96,16 @@ public:
 
 	bool m_OperationPossible = TRUE;	//操作できる状態かどうか
 
+	float m_AnimFarstCount = 0.0f;
 
+
+	float m_Distance;				//距離
+
+	float playerHeight = 1.0f;		//プレイヤーの高さ	
+
+	float m_groundDis = 0.0f;		//地面までの距離
+
+	float m_gravity = 0.0f;			//重力
 	//============================================================================
 	//メソッド
 	//============================================================================
@@ -164,14 +175,7 @@ public:
 	/*ぶら下がる右に動く*/
 	void ShimmyRight();
 
-	float m_AnimFarstCount = 0.0f;
-
-	float m_Distance;				//距離
-
-	float playerHeight = 1.0f;		//プレイヤーの高さ	
-	float m_groundDis = 0.0f;		//地面までの距離
-
-	float m_gravity = 0.0f;			//重力
-
+	/*落ちる*/
+	void Fall();
 	
 };

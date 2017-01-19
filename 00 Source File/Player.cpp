@@ -8,7 +8,7 @@ Player::Player()
 	m_Dir = D3DXVECTOR3(0, 0, 1);		//方向
 	
 	m_Pos = D3DXVECTOR3(0, 0, 0);		//座標
-
+			
 	m_Scale = D3DXVECTOR3(1, 1, 1);		//拡大行列
 
 	/*操作していない時は、常に通常状態に*/
@@ -31,7 +31,7 @@ Player::Player()
 	m_ClimeEndFlg = FALSE;
 
 	m_ClimeEndCount = 0.0f;
-
+			
 	m_OperationPossible = TRUE;
 }
 
@@ -116,12 +116,12 @@ void Player::Update()
 
 	case COVER_LEFT_STATUS:		//左壁歩き
 		ChangeAnim(11);
-		m_pD3dxMesh->m_hlAnimationList[11]->Speed = 0.010;
+		m_pD3dxMesh->m_hlAnimationList[11]->Speed = 0.012;
 		break;
 
 	case COVER_RIGHT_STATUS:	//右壁歩き
 		ChangeAnim(12);
-		m_pD3dxMesh->m_hlAnimationList[12]->Speed = 0.010;
+		m_pD3dxMesh->m_hlAnimationList[12]->Speed = 0.012;
 		break;
 
 	case GETTING_UP_STATUS:		//立ち上がり(最初のモーション)
@@ -159,11 +159,17 @@ void Player::Update()
 		m_pD3dxMesh->m_hlAnimationList[19]->Speed = 0.015;
 		break;
 
+	case FALL_STATUS:
+		ChangeAnim(20);
+		m_pD3dxMesh->m_hlAnimationList[20]->Speed = 0.015;
+		break;
+
 	default:					//通常状態
 		m_pD3dxMesh->m_hlAnimationList[2]->Speed = 0.009;
 		ChangeAnim(2);
 		break;
-	}	assert((0 <= m_PlayerStatus && m_PlayerStatus <= 19)&& "XXX:ステータス番号以外の値が入っています");
+	}	
+	assert((0 <= m_PlayerStatus && m_PlayerStatus <= 20)&& "XXX:ステータス番号以外の値が入っています");
 
 	/*立ち上がる(最初のモーション)*/
 	GettingUp();
@@ -178,7 +184,7 @@ void Player::Update()
 	}
 	else
 	{
-		/*操作していない時は、常に通常状態に*/
+		/*48フレーム以下なら立ち上がるモーション*/
 		m_PlayerStatus = GETTING_UP_STATUS;
 	}
 	
@@ -197,10 +203,6 @@ void Player::Update()
 	}
 	
 	
-
-
-
-	GettingUp();	//立ち上がる
 
 	//===============================================================
 	//キャラクターの操作
@@ -233,6 +235,7 @@ void Player::Update()
 		PushingRock();	//岩を押す2
 		//ClimingEnd();	//崖を登り終える
 
+		/*現在Lキーでぶら下がれる*/
 		if (GetAsyncKeyState('L') && 0x8000)
 		{
 			m_ShimmyFlg = TRUE;
@@ -242,11 +245,16 @@ void Player::Update()
 			m_ShimmyFlg = FALSE;
 		}
 
-		
-
 		Shimmy();		//ぶら下がる
-		ShimmyLeft();
-		ShimmyRight();
+		ShimmyLeft();	//ぶら下がり状態で左に動く
+		ShimmyRight();	//ぶら下がり状態で右に動く
+
+		if (GetAsyncKeyState('I') && 0x8000)
+		{
+			Fall();			//落ちる
+		}
+	
+
 
 		///TODO : 常にyを下げていれば、ガクガクしない
 		/*上の上がる(デバッグキー)*/
@@ -279,7 +287,7 @@ void Player::Update()
 	/*プレイヤーとカメラ 内積と外積を使用*/
 	//プレイヤーの周りをカメラが回ることができ、上キーは常にカメラからみて奥が全身とする
 	if (m_PlayerStatus == JOGGING_STATUS || m_PlayerStatus == SQUAT_FORWARD_STATUS ||
-		m_PlayerStatus == RUNNING_STATUS || m_PlayerStatus == JUMP_STATUS) {
+		m_PlayerStatus == RUNNING_STATUS || m_PlayerStatus == JUMP_STATUS ) {
 
 		D3DXVec3Normalize(&ToVec, &ToVec);//正規化
 		
@@ -376,10 +384,10 @@ void Player::TransformNomalToVec(D3DXVECTOR3 _Dir)
 void Player::CameraRotate()
 {
 	if (GetAsyncKeyState(VK_RIGHT) & 0x8000) {
-		camRadian += 7.0f;
+		camRadian += 6.0f;
 	}
 	if (GetAsyncKeyState(VK_LEFT) & 0x8000) {
-		camRadian -= 7.0f;
+		camRadian -= 6.0f;
 	}
 	D3DXMatrixRotationY(&m_CamRad, D3DXToRadian(camRadian));
 	D3DXMatrixTranslation(&mTrans, m_Pos.x, m_Pos.y, m_Pos.z);
@@ -536,6 +544,7 @@ void Player::CoverLeft()
 		if (GetAsyncKeyState('T') & 0x8000)
 		{
 			m_PlayerStatus = COVER_LEFT_STATUS;
+			TransformNomalToVec(D3DXVECTOR3(0.0f, 0.0f, move-0.02));
 
 		}
 		else
@@ -660,4 +669,9 @@ void Player::ShimmyRight()
 	{
 		m_PlayerStatus = SHIMMY_RIGHT_STATUS;
 	}
+}
+
+void Player::Fall()
+{
+	m_PlayerStatus = FALL_STATUS;
 }

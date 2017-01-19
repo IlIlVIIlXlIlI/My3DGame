@@ -101,7 +101,7 @@ HRESULT DIRECTOR::InitStage1()
 	SetVisualDirectory();
 	m_pCliff_Sphere3 = new CD3DXMESH
 		(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"Sphere.x");
-	m_pCliff_Sphere3->m_Pos = D3DXVECTOR3(-77.7f, 6.8f, 122.9);
+	m_pCliff_Sphere3->m_Pos = D3DXVECTOR3(-77.7f, 7.0f, 122.9);
 	/*スフィアを作る(渡れる崖)*/
 	InitSphere(m_pCliff_Sphere3);
 
@@ -111,14 +111,14 @@ HRESULT DIRECTOR::InitStage1()
 	SetVisualDirectory();
 	m_pCave_Sphere4 = make_shared<CD3DXMESH>();
 	m_pCave_Sphere4->Init(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"Sphere.x");
-	m_pCave_Sphere4->m_Pos = D3DXVECTOR3(-74.8f, 6.4f, 186.0f);
+	m_pCave_Sphere4->m_Pos = D3DXVECTOR3(-74.8f, 6.8f, 186.0f);
 
 
 	//落ちてくる岩と開く岩
 	SetVisualDirectory();
 	m_pDropAndOpenRock5 = make_shared<CD3DXMESH>();
 	m_pDropAndOpenRock5->Init(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"Sphere.x");
-	m_pDropAndOpenRock5->m_Pos = D3DXVECTOR3(0.5f, 14.6f, 109.097f);
+	m_pDropAndOpenRock5->m_Pos = D3DXVECTOR3(0.5f, 15.0f, 109.097f);
 
 
 	//崖を登り終える
@@ -135,7 +135,7 @@ HRESULT DIRECTOR::InitStage1()
 	SetVisualDirectory();
 	m_pPlayer = make_shared<Player>();
 	m_pPlayer->InitSM(m_hWnd, DEVICE, DCONTEXT);
-	m_pPlayer->CreateFromX("player20.x");
+	m_pPlayer->CreateFromX("player21.x");
 
 
 

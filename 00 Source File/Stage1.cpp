@@ -34,8 +34,8 @@ void DIRECTOR::Stage1()
 	//==============================================================================================
 	//Camera 
 	//==============================================================================================
-	//カメラの位置はキャラの指定位置から上に0.2単位、後ろに-4単位の場所におく（間に何もなければ）
-	//レイを飛ばして、もし障害物（ポリゴン）があるなら、そこまでの距離とする
+	
+	/*壁が近づくとプレイヤーに接近するカメラ*/
 	//D3DXVECTOR3 Start = D3DXVECTOR3(0, 1.5, 0);//
 	//D3DXVECTOR3 End = D3DXVECTOR3(0, 1.7, -4);
 	//D3DXVec3TransformCoord(&Start, &Start, &m_pPlayer->mTrans);
@@ -101,7 +101,7 @@ void DIRECTOR::Stage1()
 	//==============================================================================================
 	static bool openRockFlg = TRUE;
 	/*空*/
-	m_pSkyBox->m_fYaw = 0.5;
+	m_pSkyBox->m_fYaw += 0.0001;
 	m_pSkyBox->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
 
 	/*マップ*/
@@ -198,8 +198,7 @@ void DIRECTOR::Stage1()
 	static BOOL KeyFlg = FALSE;
 	//スフィアに当たっているか
 
-	/*プライヤーのスフィアと岩のあたり判定
-	*/
+	/*プライヤーのスフィアと岩のあたり判定*/
 	if (Collision(m_pPlayerSphere, m_pMoveRock_Sphere1))
 	{
 
@@ -417,7 +416,7 @@ void DIRECTOR::Stage1()
 	//壁横歩きの場所までワープ
 	if (GetAsyncKeyState('H') && 0x8000)
 	{
-		m_pPlayer->m_Pos = D3DXVECTOR3(61, 6.7, 118.89);
+		m_pPlayer->m_Pos = D3DXVECTOR3(-77.9, 6.8, 122.5);
 	}
 	//==================
 	//レイの描画
