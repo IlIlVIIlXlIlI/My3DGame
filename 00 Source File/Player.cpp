@@ -384,10 +384,10 @@ void Player::TransformNomalToVec(D3DXVECTOR3 _Dir)
 void Player::CameraRotate()
 {
 	if (GetAsyncKeyState(VK_RIGHT) & 0x8000) {
-		camRadian += 6.0f;
+		camRadian += 4.0f;
 	}
 	if (GetAsyncKeyState(VK_LEFT) & 0x8000) {
-		camRadian -= 6.0f;
+		camRadian -= 4.0f;
 	}
 	D3DXMatrixRotationY(&m_CamRad, D3DXToRadian(camRadian));
 	D3DXMatrixTranslation(&mTrans, m_Pos.x, m_Pos.y, m_Pos.z);

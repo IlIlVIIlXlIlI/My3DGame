@@ -84,7 +84,7 @@ void CAMERA::Update()
 	switch (m_CamStatus)
 	{
 	case PLAYER_BACK:
-		mCPos = D3DXVECTOR3(0.0f, 2.0f, -4.0f);//カメラ座標
+		mCPos = D3DXVECTOR3(0.0f, 2.0f, -3.5f);//カメラ座標
 		break;
 	case PLAYER_SQUAD:
 		mCPos = D3DXVECTOR3(0.0f, 1.0f, -2.0f);

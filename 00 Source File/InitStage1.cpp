@@ -107,7 +107,7 @@ HRESULT DIRECTOR::InitStage1()
 
 
 
-	//ö‚ê‚éŠâ
+	//ö‚ê‚éŠâ		
 	SetVisualDirectory();
 	m_pCave_Sphere4 = make_shared<CD3DXMESH>();
 	m_pCave_Sphere4->Init(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"Sphere.x");
