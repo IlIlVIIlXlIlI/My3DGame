@@ -118,7 +118,7 @@ HRESULT DIRECTOR::InitStage1()
 	SetVisualDirectory();
 	m_pDropAndOpenRock5 = make_shared<CD3DXMESH>();
 	m_pDropAndOpenRock5->Init(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"Sphere.x");
-	m_pDropAndOpenRock5->m_Pos = D3DXVECTOR3(0.5f, 15.0f, 109.097f);
+	m_pDropAndOpenRock5->m_Pos = D3DXVECTOR3(0.5f, 16.0f, 109.097f);
 
 
 	//ŠR‚ğ“o‚èI‚¦‚é

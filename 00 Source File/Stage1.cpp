@@ -290,18 +290,27 @@ void DIRECTOR::Stage1()
 		m_keyE->Render(D3DXVECTOR3((WINDOW_WIDTH / 2) - 40, (WINDOW_HEIGHT / 2) + 80, 0),1.0f);
 	}
 
-
+	static bool moveRockFlg = 0;
+	static float moveRockDrop = 30.0;
 	/*—Ž‚¿‚Ä‚­‚éŠâ‚ÆŠJ‚­*/
 	if (Collision(m_pPlayerSphere, m_pDropAndOpenRock5.get()))
 	{
 		SetWindowTextA(m_hWnd, "Õ“Ë‚µ‚Ä‚¢‚Ü‚·");
-		m_pMoveRock->m_Pos = D3DXVECTOR3(0.31f, 14.6f, 100.0f);
-		m_pMoveRock->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
+		
+		
+		
+		moveRockFlg = 1;
 		openRockFlg = FALSE;
 
 	}
 
-
+	if (moveRockFlg == 1)
+	{
+		m_pMoveRock->m_Pos = D3DXVECTOR3(0.31f, moveRockDrop, 100.0f);
+		m_pMoveRock->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
+		moveRockDrop -= 0.2;
+		if (moveRockDrop <= 14.6)moveRockDrop = 14.6;
+	}
 
 	/*ŠR‚ð“o‚èI‚¦‚é*/
 	if (GetAsyncKeyState('L') && 0x8000)
@@ -407,7 +416,7 @@ void DIRECTOR::Stage1()
 	m_pText->Render(sz4, 0, 160);
 
 	char sz5[512] = { 0 };
-	sprintf_s(sz4, "updateFlg = %d", m_LabelCal->updateFlg);
+	sprintf_s(sz4, "moveRockDrop= %f", moveRockDrop);
 	m_pText->Render(sz4, 0, 190);
 
 	//==================
