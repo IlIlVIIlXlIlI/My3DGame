@@ -295,10 +295,7 @@ void DIRECTOR::Stage1()
 	/*—‚¿‚Ä‚­‚éŠâ‚ÆŠJ‚­*/
 	if (Collision(m_pPlayerSphere, m_pDropAndOpenRock5.get()))
 	{
-		SetWindowTextA(m_hWnd, "Õ“Ë‚µ‚Ä‚¢‚Ü‚·");
-		
-		
-		
+		SetWindowTextA(m_hWnd, "Õ“Ë‚µ‚Ä‚¢‚Ü‚·");	
 		moveRockFlg = 1;
 		openRockFlg = FALSE;
 
