@@ -6,7 +6,7 @@
 
 class Player : public ChrBase
 {
-private:
+public:
 	
 
 	/*プレイヤーのステータス*/
@@ -57,7 +57,7 @@ private:
 	
 
 	/*現在のアニメーションを立ちに*/
-	Player_Status m_PlayerStatus = STANDING_STATUS;
+	
 	
 	/*カメラの奥が常にZ軸でキャラクターを動かした時に違和感ないようにする*/
 	void TransformNomalToVec(D3DXVECTOR3);
@@ -67,6 +67,7 @@ private:
 public:
 	Player();
 
+	Player_Status m_PlayerStatus = STANDING_STATUS;
 
 	float camRadian = 0.0f;
 	float chrRadian = 0.0f;

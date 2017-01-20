@@ -125,6 +125,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="00 Source File\BlackBar.cpp" />
     <ClCompile Include="00 Source File\CD3DXMESH.cpp" />
     <ClCompile Include="00 Source File\CD3DXSKINMESH.cpp" />
     <ClCompile Include="00 Source File\CharacterBase.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="00 Source File\Entry.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="00 Source File\BlackBar.h" />
     <ClInclude Include="00 Source File\CD3DXMESH.h" />
     <ClInclude Include="00 Source File\CD3DXSKINMESH.h" />
     <ClInclude Include="00 Source File\CharacterBase.h" />

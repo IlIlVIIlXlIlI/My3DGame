@@ -94,8 +94,12 @@ void CAMERA::Update()
 		CLook = D3DXVECTOR3(0.0f, 1.0f, 1.5f);
 	case WALL_FRONT:
 		break;
+
+	case GETTING_UP:
+		mCPos = D3DXVECTOR3(0.0f, 10.0f, -3.5f);//カメラ座標
+		break;
 	default:
-		assert((m_CamStatus >= 0 && m_CamStatus <= m_CamStatus == WALL_FRONT) && "XXX: 不正な数値があります");
+		assert((m_CamStatus >= 0 && m_CamStatus <= m_CamStatus == GETTING_UP) && "XXX: 不正な数値があります");
 		break;
 	}
 

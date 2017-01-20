@@ -69,6 +69,7 @@ HRESULT DIRECTOR::InitStage1()
 	SetVisualDirectory();
 	m_pMoveRock = make_shared<CD3DXMESH>
 		(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"moveRock.x");
+	m_pMoveRock->m_Pos = D3DXVECTOR3(1, 2, 25);
 
 	//äJÇ≠ä‚
 	SetVisualDirectory();
@@ -118,7 +119,7 @@ HRESULT DIRECTOR::InitStage1()
 	SetVisualDirectory();
 	m_pDropAndOpenRock5 = make_shared<CD3DXMESH>();
 	m_pDropAndOpenRock5->Init(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"Sphere.x");
-	m_pDropAndOpenRock5->m_Pos = D3DXVECTOR3(0.5f, 16.0f, 109.097f);
+	m_pDropAndOpenRock5->m_Pos = D3DXVECTOR3(0.3f, 15.3f, 103.097f);
 
 
 	//äRÇìoÇËèIÇ¶ÇÈ
@@ -199,5 +200,10 @@ HRESULT DIRECTOR::InitStage1()
 	//============================================================================
 	m_Scene = PLAY_STAGE1;
 
+
+	//=============================================================
+	//BrackBar
+	//=============================================================
+	m_BB = make_unique<BLACKBAR>();
 	return S_OK;
 }

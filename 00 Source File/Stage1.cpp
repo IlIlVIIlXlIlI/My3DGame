@@ -63,6 +63,11 @@ void DIRECTOR::Stage1()
 		m_pCamera->m_CamStatus = CAMERA::PLAYER_BOW;
 	}
 
+	if (m_pPlayer->m_PlayerStatus == Player::GETTING_UP_STATUS)
+	{
+		m_pCamera->m_CamStatus = CAMERA::GETTING_UP;
+	}
+
 	m_pCamera->mCPos.x += m_pPlayer->mTrans._41;
 	m_pCamera->mCPos.y += m_pPlayer->mTrans._42;
 	m_pCamera->mCPos.z += m_pPlayer->mTrans._43;
@@ -194,7 +199,6 @@ void DIRECTOR::Stage1()
 	//==============================================================================================
 	//スフィアとの衝突判定
 	//==============================================================================================
-	static float blackBarCount = 0.0;
 	static BOOL KeyFlg = FALSE;
 	//スフィアに当たっているか
 
@@ -214,10 +218,9 @@ void DIRECTOR::Stage1()
 			m_pPlayer->m_PushRockFlg = TRUE;
 
 			/*黒帯スプライト*/
-			if (blackBarCount >= 89)blackBarCount = 89;
-			blackBarCount++;
-			m_pBlackBar->Render(D3DXVECTOR3(0, blackBarCount - 90, 0),1);
-			m_pBlackBar->Render(D3DXVECTOR3(0, WINDOW_HEIGHT - blackBarCount, 0),1);
+			m_BB->Sum();
+			m_pBlackBar->Render(D3DXVECTOR3(0, m_BB->posCount - 90, 0),1);
+			m_pBlackBar->Render(D3DXVECTOR3(0, WINDOW_HEIGHT - m_BB->posCount, 0),1);
 
 
 
@@ -248,11 +251,12 @@ void DIRECTOR::Stage1()
 		
 		if (m_pPlayer->KeyPanch >= 8.0f)
 		{
-			m_pPlayer->m_PushRockFlg = FALSE;
-			m_pPlayer->m_PushinFlg = FALSE;
-			m_pPlayer->m_PushNow = FALSE;
-			m_pMoveRock->m_Pos.z = 7.7;
-			m_pMoveRock->m_Pos.y = -6;
+			m_pPlayer->m_PushRockFlg = FALSE;	//今押していない
+			m_pPlayer->m_PushinFlg = FALSE;		//今押していない
+			m_pPlayer->m_PushNow = FALSE;	
+			m_pMoveRock->m_fPitch += 0.01;
+			//m_pMoveRock->m_Pos.z = 7.7;
+			//m_pMoveRock->m_Pos.y = -6;
 		}
 		
 	}
@@ -291,7 +295,7 @@ void DIRECTOR::Stage1()
 	}
 
 	static bool moveRockFlg = 0;
-	static float moveRockDrop = 30.0;
+	static float moveRockDrop = 40.0;
 	/*落ちてくる岩と開く*/
 	if (Collision(m_pPlayerSphere, m_pDropAndOpenRock5.get()))
 	{
@@ -303,10 +307,10 @@ void DIRECTOR::Stage1()
 
 	if (moveRockFlg == 1)
 	{
-		m_pMoveRock->m_Pos = D3DXVECTOR3(0.31f, moveRockDrop, 100.0f);
+		m_pMoveRock->m_Pos = D3DXVECTOR3(0.31f, moveRockDrop, 124.0f);
 		m_pMoveRock->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
 		moveRockDrop -= 0.2;
-		if (moveRockDrop <= 14.6)moveRockDrop = 14.6;
+		if (moveRockDrop <= 18.6)moveRockDrop = 18.6;
 	}
 
 	/*崖を登り終える*/

@@ -14,6 +14,8 @@
 #include "Collision.h"
 #include "Frustum.h"
 #include "UpdateLabel.h"
+#include "BlackBar.h"
+
 
 #define DEVICE		m_pD3d->m_pDevice
 #define DCONTEXT	m_pD3d->m_pDeviceContext 
@@ -138,6 +140,13 @@ private:
 	//Update‚Ìƒ‰ƒxƒ‹
 	//=============================================================
 	unique_ptr<LABELCAL>		m_LabelCal;
+
+
+	//=============================================================
+	//BrackBar‚Ìƒ‰ƒxƒ‹
+	//=============================================================
+	unique_ptr<BLACKBAR>		m_BB;
+
 public:
 	//Method
 	DIRECTOR();

@@ -29,7 +29,9 @@ public:
 
 		PLAYER_BOW,			//弓を構えた時のプレイヤーの背後	
 
-		WALL_FRONT			//壁の横歩き
+		WALL_FRONT,			//壁の横歩き
+
+		GETTING_UP			//立ち上がる
 	};
 
 	Camera_Status m_CamStatus = PLAYER_BACK;
