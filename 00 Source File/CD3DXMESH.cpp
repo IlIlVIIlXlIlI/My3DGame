@@ -87,11 +87,42 @@ HRESULT CD3DXMESH::Init(HWND _hWnd,ID3D11Device* _pDevice11,ID3D11DeviceContext*
 		return E_FAIL;
 	}
 	
-	
+	//ノーマルマップ用テクスチャーを読み込む
+	//LoadNomalMap("Rock_SharpStainedCliff_2k_n.png", m_pNormalTexture);
 
 	return S_OK;
 }
 //
+
+//
+HRESULT CD3DXMESH::Init(HWND _hWnd, ID3D11Device* _pDevice11, ID3D11DeviceContext* _pContext11,
+	LPSTR _FileName,LPSTR _NomalMap)
+{
+	m_hWnd = _hWnd;
+	m_pDevice11 = _pDevice11;
+	m_pDeviceContext11 = _pContext11;
+
+	if (FAILED(InitDx9()))
+	{
+		return E_FAIL;
+	}
+	if (FAILED(LoadXMesh(_FileName)))
+	{
+		return E_FAIL;
+	}
+
+	if (FAILED(InitShader()))
+	{
+		return E_FAIL;
+	}
+
+	//ノーマルマップ用テクスチャーを読み込む
+	LoadNomalMap(_NomalMap, m_pNormalTexture);
+
+	return S_OK;
+}
+
+//"Rock_SharpStainedCliff_2k_n.png"
 //======================================================================================
 //D3DXのパーサーを使うためには、Dx9のデバイスが必要なので作成する。
 //======================================================================================
@@ -324,8 +355,7 @@ HRESULT CD3DXMESH::LoadXMesh(LPSTR _FileName)
 	SamDesc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
 	m_pDevice11->CreateSamplerState( &SamDesc, &m_pSampleLinear);
 
-	//ノーマルマップ用テクスチャーを読み込む
-	LoadNomalMap("Rock_SharpStainedCliff_2k_n.png", m_pNormalTexture);
+	
 
 	return S_OK;
 }

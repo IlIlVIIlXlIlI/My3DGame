@@ -39,5 +39,4 @@ public:
 	void	Clear();
 	HRESULT Present();
 	
-
 };

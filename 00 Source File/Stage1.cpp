@@ -167,8 +167,11 @@ void DIRECTOR::Stage1()
 	/*落ちてくる岩と開くスフィア5*/
 	objToSphere(m_pDropAndOpenRock5.get(), m_pSphereMesh.get());
 
-	/*落ちてくる岩と開くスフィア5*/
+	/*登り終えたときのスフィア6*/
 	objToSphere(m_pClimeEndSphere6.get(), m_pSphereMesh.get());
+
+	/*ぶら下がる箇所のスフィア7*/
+	objToSphere(m_pShimmyShpere7.get(), m_pSphereMesh.get());
 
 
 	/*2キーでスフィア可視化*/
@@ -188,6 +191,8 @@ void DIRECTOR::Stage1()
 			m_pDropAndOpenRock5->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
 			///*登り終えるスフィアを可視化*/
 			m_pClimeEndSphere6->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
+			///*ぶら下がるスフィアを可視化*/
+			m_pShimmyShpere7->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
 		}
 	}
 	else
@@ -201,7 +206,7 @@ void DIRECTOR::Stage1()
 	//==============================================================================================
 	static BOOL KeyFlg = FALSE;
 	//スフィアに当たっているか
-
+	static bool moveRockStartFlg = FALSE;
 	/*プライヤーのスフィアと岩のあたり判定*/
 	if (Collision(m_pPlayerSphere, m_pMoveRock_Sphere1))
 	{
@@ -252,15 +257,42 @@ void DIRECTOR::Stage1()
 		if (m_pPlayer->KeyPanch >= 8.0f)
 		{
 			m_pPlayer->m_PushRockFlg = FALSE;	//今押していない
-			m_pPlayer->m_PushinFlg = FALSE;		//今押していない
-			m_pPlayer->m_PushNow = FALSE;	
-			m_pMoveRock->m_fPitch += 0.01;
-			//m_pMoveRock->m_Pos.z = 7.7;
-			//m_pMoveRock->m_Pos.y = -6;
+			m_pPlayer->m_PushinFlg = FALSE;		//今押し込んでいない
+			m_pPlayer->m_PushNow = FALSE;		//今押していない
+
+			moveRockStartFlg = TRUE;
 		}
+
+		
 		
 	}
 	
+	if (moveRockStartFlg == TRUE)
+	{	
+		if(m_pMoveRock->m_Pos.y >= -3.2)m_pMoveRock->m_fPitch += 0.01;
+
+		m_pMoveRock->m_Pos.z += 0.01;
+
+		if (m_pMoveRock->m_Pos.z >= 28.0)
+		{
+			m_pMoveRock->m_Pos.y -= 0.01;
+		}
+
+		if (m_pMoveRock->m_Pos.z >= 32.5)
+		{
+			m_pMoveRock->m_Pos.z = 32.5;
+			
+		}
+
+		if (m_pMoveRock->m_Pos.y <= -3.2)
+		{
+			m_pMoveRock->m_Pos.y = -3.2;
+			moveRockStartFlg = FALSE;
+		}
+			
+	}
+
+
 	/*クライミング*/
 	if (Collision(m_pPlayerSphere, m_pCliff_Sphere2))
 	{
@@ -304,7 +336,6 @@ void DIRECTOR::Stage1()
 		openRockFlg = FALSE;
 
 	}
-
 	if (moveRockFlg == 1)
 	{
 		m_pMoveRock->m_Pos = D3DXVECTOR3(0.31f, moveRockDrop, 124.0f);
@@ -314,10 +345,10 @@ void DIRECTOR::Stage1()
 	}
 
 	/*崖を登り終える*/
-	if (GetAsyncKeyState('L') && 0x8000)
+	/*if (GetAsyncKeyState('L') && 0x8000)
 	{
 		m_pPlayer->m_ClimeEndFlg = TRUE;
-	}
+	}*/
 	/*if (Collision(m_pPlayerSphere,m_pClimeEndSphere6.get()))
 	{
 		SetWindowTextA(m_hWnd, "ここで登り終えるよ！");
@@ -328,6 +359,13 @@ void DIRECTOR::Stage1()
 	{
 		m_pPlayer->m_Pos = D3DXVECTOR3(1.0f, 14.6f, 36.2f);
 	}*/
+
+
+	/*ぶら下がるスフィアとの当たり判定*/
+	if (Collision(m_pPlayerSphere, m_pShimmyShpere7.get()))
+	{
+
+	}
 	//==============================================================================================
 	//視錘台カリング
 	//==============================================================================================
@@ -351,10 +389,7 @@ void DIRECTOR::Stage1()
 
 	/*Updateラベル*/
 	
-	/*
-	markflg = 0; //普通の速さで進む
-	markflg = 1; //ゆっくりの速さで進む
-	*/
+	
 
 	/*アップデートラベルを描画*/
 	m_pUpdateLabel->Render(D3DXVECTOR3((WINDOW_WIDTH / 2) + m_LabelCal->markCount, WINDOW_HEIGHT / 2, 0), 0.5);
@@ -367,10 +402,6 @@ void DIRECTOR::Stage1()
 	m_LabelCal->MissionLabel();
 	
 
-
-
-
-	
 
 
 	if (openRockFlg == FALSE)
@@ -417,7 +448,7 @@ void DIRECTOR::Stage1()
 	m_pText->Render(sz4, 0, 160);
 
 	char sz5[512] = { 0 };
-	sprintf_s(sz4, "moveRockDrop= %f", moveRockDrop);
+	sprintf_s(sz4, "moveRockStartFlg %d", moveRockStartFlg);
 	m_pText->Render(sz4, 0, 190);
 
 	//==================

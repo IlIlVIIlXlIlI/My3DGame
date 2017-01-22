@@ -50,8 +50,8 @@ HRESULT DIRECTOR::InitStage1()
 	//==========================================================================
 	//マップ
 	SetVisualDirectory();
-	m_pMap_Start = make_shared<CD3DXMESH>
-		(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"Start.x");
+	m_pMap_Start = make_shared<CD3DXMESH>();
+		m_pMap_Start->Init(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"Start.x","Rock_SharpStainedCliff_2k_n.png");
 
 
 	//マップのコリジョンモデル
@@ -107,7 +107,6 @@ HRESULT DIRECTOR::InitStage1()
 	InitSphere(m_pCliff_Sphere3);
 
 
-
 	//潜れる岩		
 	SetVisualDirectory();
 	m_pCave_Sphere4 = make_shared<CD3DXMESH>();
@@ -128,6 +127,11 @@ HRESULT DIRECTOR::InitStage1()
 	m_pClimeEndSphere6->Init(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"Sphere.x");
 	m_pClimeEndSphere6->m_Pos = D3DXVECTOR3(1.0f, 12.0f, 35.0f);
 
+
+	//崖をぶらさがる
+	SetVisualDirectory();
+	m_pShimmyShpere7 = make_shared<CD3DXMESH>();
+	m_pShimmyShpere7->Init(m_hWnd,DEVICE,DCONTEXT,(LPSTR)"Sphere.x");
 
 	//============================================================================
 	//SKINMESH

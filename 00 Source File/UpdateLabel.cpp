@@ -38,6 +38,11 @@ void LABELCAL::UpdateLabel()
 
 void LABELCAL::MissionLabel()
 {
+	/*
+	markflg = FALSE; //ïÅí ÇÃë¨Ç≥Ç≈êiÇﬁ
+	markflg = TRUE; //Ç‰Ç¡Ç≠ÇËÇÃë¨Ç≥Ç≈êiÇﬁ
+	*/
+
 	if (labelflg == FALSE) { labelCount -= 2.5f; }
 	if (labelCount <= 350) { labelflg = TRUE; }
 	if (labelflg == TRUE) { labelCount -= 2.0; }

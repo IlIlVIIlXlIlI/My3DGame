@@ -209,7 +209,8 @@ public:
 	/*èâä˙âª*/
 	HRESULT	Init(HWND hWnd, ID3D11Device*, ID3D11DeviceContext*, LPSTR);
 
-
+	HRESULT Init(HWND _hWnd, ID3D11Device* _pDevice11, ID3D11DeviceContext* _pContext11,
+		LPSTR _FileName, LPSTR _NomalMap);
 
 	//=======================================================================================
 	//ÉåÉìÉ_Å[(ï`âÊ)

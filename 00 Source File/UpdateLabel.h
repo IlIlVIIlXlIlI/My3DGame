@@ -1,4 +1,4 @@
-#pragma comment
+#pragma once
 #include "BASE.h"
 
 class LABELCAL

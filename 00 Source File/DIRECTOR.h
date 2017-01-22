@@ -116,7 +116,7 @@ private:
 	shared_ptr<CD3DXMESH>		m_pCave_Sphere4;			//洞窟のスフィア
 	shared_ptr<CD3DXMESH>		m_pDropAndOpenRock5;		//落ちてくる岩と開く岩スフィア
 	shared_ptr<CD3DXMESH>		m_pClimeEndSphere6;			//崖を登り終える
-
+	shared_ptr<CD3DXMESH>		m_pShimmyShpere7;
 	//=============================================================
 	//球との当たり判定
 	//=============================================================
@@ -165,4 +165,7 @@ public:
 
 	void objToSphere(CD3DXMESH*,CD3DXMESH*);
 
+
+
 };
+

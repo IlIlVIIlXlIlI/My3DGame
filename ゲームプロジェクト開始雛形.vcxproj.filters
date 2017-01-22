@@ -61,7 +61,7 @@
     <Filter Include="Update Label Class">
       <UniqueIdentifier>{4b70a850-d7c5-4f6f-b371-e414928b882e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Black Bar Class">
+    <Filter Include="Sprite Class\Black Bar Class">
       <UniqueIdentifier>{2269dcd3-29f7-4a42-803f-e1e884ea73ab}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -137,7 +137,7 @@
       <Filter>Update Label Class</Filter>
     </ClCompile>
     <ClCompile Include="00 Source File\BlackBar.cpp">
-      <Filter>Black Bar Class</Filter>
+      <Filter>Sprite Class\Black Bar Class</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -202,7 +202,7 @@
       <Filter>Update Label Class</Filter>
     </ClInclude>
     <ClInclude Include="00 Source File\BlackBar.h">
-      <Filter>Black Bar Class</Filter>
+      <Filter>Sprite Class\Black Bar Class</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
