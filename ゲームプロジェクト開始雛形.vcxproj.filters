@@ -58,11 +58,11 @@
     <Filter Include="Frustum Class">
       <UniqueIdentifier>{1c18d3c3-9bb5-40a4-849a-79480bf3eff0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Update Label Class">
-      <UniqueIdentifier>{4b70a850-d7c5-4f6f-b371-e414928b882e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Sprite Class\Black Bar Class">
       <UniqueIdentifier>{2269dcd3-29f7-4a42-803f-e1e884ea73ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sprite Class\Update Label Class">
+      <UniqueIdentifier>{4b70a850-d7c5-4f6f-b371-e414928b882e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -134,7 +134,7 @@
       <Filter>Frustum Class</Filter>
     </ClCompile>
     <ClCompile Include="00 Source File\UpdateLabel.cpp">
-      <Filter>Update Label Class</Filter>
+      <Filter>Sprite Class\Update Label Class</Filter>
     </ClCompile>
     <ClCompile Include="00 Source File\BlackBar.cpp">
       <Filter>Sprite Class\Black Bar Class</Filter>
@@ -199,7 +199,7 @@
       <Filter>Frustum Class</Filter>
     </ClInclude>
     <ClInclude Include="00 Source File\UpdateLabel.h">
-      <Filter>Update Label Class</Filter>
+      <Filter>Sprite Class\Update Label Class</Filter>
     </ClInclude>
     <ClInclude Include="00 Source File\BlackBar.h">
       <Filter>Sprite Class\Black Bar Class</Filter>

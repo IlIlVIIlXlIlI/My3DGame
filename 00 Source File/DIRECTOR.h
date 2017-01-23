@@ -66,7 +66,7 @@ private:
 	shared_ptr<CD3DXMESH>		m_pSkyBox;				//空
 	shared_ptr<CD3DXMESH>		m_pMoveRock;			//岩
 	shared_ptr<CD3DXMESH>		m_pOpenRock;			//開く岩
-
+	shared_ptr<CD3DXMESH>		m_pPillar;
 	
 	//=============================================================
 	//DEBUG STRING
@@ -112,7 +112,7 @@ private:
 
 	CD3DXMESH*					m_pMoveRock_Sphere1;		//岩のスフィア
 	CD3DXMESH*					m_pCliff_Sphere2;			//崖を上るのスフィア
-	CD3DXMESH*					m_pCliff_Sphere3	;			//崖を渡るのスフィア
+	CD3DXMESH*					m_pCliff_Sphere3;			//崖を渡るのスフィア
 	shared_ptr<CD3DXMESH>		m_pCave_Sphere4;			//洞窟のスフィア
 	shared_ptr<CD3DXMESH>		m_pDropAndOpenRock5;		//落ちてくる岩と開く岩スフィア
 	shared_ptr<CD3DXMESH>		m_pClimeEndSphere6;			//崖を登り終える
@@ -134,6 +134,7 @@ private:
 	//Eキー(プッシュ)
 	//=============================================================
 	shared_ptr<SPRITE>			m_keyE;
+	shared_ptr<SPRITE>			m_keyE2;
 	shared_ptr<SPRITE>			m_keyC;
 
 	//=============================================================

@@ -84,7 +84,7 @@ void CAMERA::Update()
 	switch (m_CamStatus)
 	{
 	case PLAYER_BACK:
-		mCPos = D3DXVECTOR3(0.0f, 2.0f, -5.5f);//カメラ座標
+		mCPos = D3DXVECTOR3(0.0f, 1.8f, -3.8f);//カメラ座標
 		break;
 	case PLAYER_SQUAD:
 		mCPos = D3DXVECTOR3(0.0f, 1.0f, -2.0f);
@@ -96,7 +96,7 @@ void CAMERA::Update()
 		break;
 
 	case GETTING_UP:
-		mCPos = D3DXVECTOR3(0.0f, 10.0f, -3.5f);//カメラ座標
+		GettingUpCameraPos();
 		break;
 	default:
 		assert((m_CamStatus >= 0 && m_CamStatus <= m_CamStatus == GETTING_UP) && "XXX: 不正な数値があります");
@@ -154,4 +154,17 @@ D3DXVECTOR3 CAMERA::GetRayDistance(CD3DXMESH* _pMesh, D3DXVECTOR3& RayStart, D3D
 	}
 	return RayEnd;
 
+}
+
+
+void CAMERA::GettingUpCameraPos()
+{
+	
+	CameraPos += 0.02;
+	if (CameraPos >= 7.0f)CameraPos = 7.0f;
+	mCPos = D3DXVECTOR3(0.0f, 8.0f - CameraPos, -3.5f);//カメラ座標
+
+#ifdef _DEBUG
+	std::cout << "CameraPos = " << CameraPos << std::endl;
+#endif
 }

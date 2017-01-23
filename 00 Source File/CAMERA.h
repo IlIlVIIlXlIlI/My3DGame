@@ -54,6 +54,7 @@ public:
 	D3DXVECTOR3 mCPos;
 	LPD3DXMESH m_pD3DXMesh;
 	float m_Radius;
+	float CameraPos = 0.0f;
 	//=======================================================================================
 	//Method
 	//=======================================================================================
@@ -66,7 +67,12 @@ public:
 	/*更新*/
 	void Update();
 
+	/*立ち上がる時のカメラ位置*/
+	void GettingUpCameraPos();
+
 	//void GetPlayerPosition(D3DXVECTOR3 _Position);
 
 	D3DXVECTOR3 GetRayDistance(CD3DXMESH* _pMesh, D3DXVECTOR3& RayStart, D3DXVECTOR3 RayEnd);
+
+
 };

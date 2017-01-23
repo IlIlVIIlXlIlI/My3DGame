@@ -9,7 +9,7 @@ DIRECTOR::DIRECTOR()
 	初期シーンをステージ1に
 	*/
 	ZeroMemory(this,sizeof(DIRECTOR));
-	m_Scene = INIT_STAGE1;
+	m_Scene = INIT_OPENING;
 	count = 0.0f;
 }
 //
@@ -17,7 +17,7 @@ DIRECTOR::DIRECTOR()
 ///HACK : スマートポインタに置き換えたため今は必要ない
 DIRECTOR::~DIRECTOR()
 {
-	//SAFE_DELETE(m_pSound);
+	////SAFE_DELETE(m_pSound);
 	//SAFE_DELETE(m_pPlayer);
 }
 

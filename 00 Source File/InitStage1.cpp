@@ -67,9 +67,16 @@ HRESULT DIRECTOR::InitStage1()
 
 	//動かせる岩のモデル
 	SetVisualDirectory();
-	m_pMoveRock = make_shared<CD3DXMESH>
-		(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"moveRock.x");
+	m_pMoveRock = make_shared<CD3DXMESH>();
+		m_pMoveRock->Init(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"moveRock.x","Rock_SharpStainedCliff_2k_n.png");
 	m_pMoveRock->m_Pos = D3DXVECTOR3(1, 2, 25);
+
+
+	//柱
+	SetVisualDirectory();
+	m_pPillar = make_shared<CD3DXMESH>();
+	m_pPillar->Init(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"pillar.x", "Misc_StonePillar_1k_n.png");
+	m_pPillar->m_Pos = D3DXVECTOR3(0, 0, 0);
 
 	//開く岩
 	SetVisualDirectory();
@@ -111,7 +118,7 @@ HRESULT DIRECTOR::InitStage1()
 	SetVisualDirectory();
 	m_pCave_Sphere4 = make_shared<CD3DXMESH>();
 	m_pCave_Sphere4->Init(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"Sphere.x");
-	m_pCave_Sphere4->m_Pos = D3DXVECTOR3(-74.8f, 6.8f, 186.0f);
+	m_pCave_Sphere4->m_Pos = D3DXVECTOR3(-52.3f, 6.49f, 179.5f);
 
 
 	//落ちてくる岩と開く岩
@@ -165,6 +172,11 @@ HRESULT DIRECTOR::InitStage1()
 	m_keyE = make_shared<SPRITE>
 		(DCONTEXT, (LPSTR)"E_KEY.png", 94, 92);
 	
+	/*Eキー2*/
+	SetRootDirectory();
+	m_keyE2 = make_shared<SPRITE>
+		(DCONTEXT, (LPSTR)"E_KEY2.png", 94, 92);
+
 	/*Cキー*/
 	SetRootDirectory();
 	m_keyC = make_shared<SPRITE>

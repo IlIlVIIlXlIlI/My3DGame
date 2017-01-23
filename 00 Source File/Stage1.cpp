@@ -127,6 +127,8 @@ void DIRECTOR::Stage1()
 		m_pOpenRock->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
 	}
 	
+	/*柱*/
+	m_pPillar->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
 
 	//m_pCave_Sphere4->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
 
@@ -216,8 +218,7 @@ void DIRECTOR::Stage1()
 		//キーの連打が8.0f以下
 		if (m_pPlayer->KeyPanch <= 8.0f)
 		{
-			/*Eキースプライト*/
-			m_keyE->Render(D3DXVECTOR3((WINDOW_WIDTH / 2) - 40, (WINDOW_HEIGHT / 2) + 80, 0),1.0f);
+			
 
 
 			m_pPlayer->m_PushRockFlg = TRUE;
@@ -231,6 +232,9 @@ void DIRECTOR::Stage1()
 
 			if (GetAsyncKeyState('E') && 0x8000)
 			{
+				/*Eキースプライト*/
+				m_keyE2->Render(D3DXVECTOR3((WINDOW_WIDTH / 2) - 40, (WINDOW_HEIGHT / 2) + 80, 0), 1.0f);
+
 				if (KeyFlg == FALSE)
 				{
 					KeyFlg = TRUE;
@@ -239,6 +243,8 @@ void DIRECTOR::Stage1()
 			}
 			else
 			{
+				/*Eキースプライト*/
+				m_keyE->Render(D3DXVECTOR3((WINDOW_WIDTH / 2) - 40, (WINDOW_HEIGHT / 2) + 80, 0), 1.0f);
 				KeyFlg = FALSE;
 			}
 
