@@ -116,7 +116,7 @@ void Player::Update()
 
 	case COVER_LEFT_STATUS:		//¶•Ç•à‚«
 		ChangeAnim(11);
-		m_pD3dxMesh->m_hlAnimationList[11]->Speed = 0.012;
+		m_pD3dxMesh->m_hlAnimationList[11]->Speed = 0.010;
 		break;
 
 	case COVER_RIGHT_STATUS:	//‰E•Ç•à‚«

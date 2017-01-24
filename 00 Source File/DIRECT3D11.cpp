@@ -158,7 +158,7 @@ HRESULT DIRECT3D11::Init(D3D_INIT* pcd)
 void DIRECT3D11::Clear()
 {
 	//画面クリア（実際は単色で画面を塗りつぶす処理）
-	float ClearColor[4] = {1,0,0,1};// クリア色作成　RGBAの順
+	float ClearColor[4] = {1,1,1,1};// クリア色作成　RGBAの順
 	m_pDeviceContext->ClearRenderTargetView(m_pBackBuffer_TexRTV,ClearColor);//画面クリア
 	m_pDeviceContext->ClearDepthStencilView(m_pBuckBuffer_DSTexDSV,D3D11_CLEAR_DEPTH,1.0f,0);//深度バッファクリア
 }

@@ -78,6 +78,15 @@ HRESULT DIRECTOR::InitStage1()
 	m_pPillar->Init(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"pillar.x", "Misc_StonePillar_1k_n.png");
 	m_pPillar->m_Pos = D3DXVECTOR3(0, 0, 0);
 
+
+
+	//ツタ
+	SetVisualDirectory();
+	m_pIvy = make_shared<CD3DXMESH>();
+	m_pIvy->Init(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"Ivy.x", "Misc_SmallLeafHedge_2k_n.png");
+	m_pIvy->m_Pos = D3DXVECTOR3(0, 0, 0);
+	
+
 	//開く岩
 	SetVisualDirectory();
 	m_pOpenRock = make_shared<CD3DXMESH>
@@ -128,17 +137,19 @@ HRESULT DIRECTOR::InitStage1()
 	m_pDropAndOpenRock5->m_Pos = D3DXVECTOR3(0.3f, 15.3f, 103.097f);
 
 
-	//崖を登り終える
+	//クリアスフィア
 	SetVisualDirectory();
-	m_pClimeEndSphere6 = make_shared<CD3DXMESH>();
-	m_pClimeEndSphere6->Init(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"Sphere.x");
-	m_pClimeEndSphere6->m_Pos = D3DXVECTOR3(1.0f, 12.0f, 35.0f);
+	m_pClearSphere = make_shared<CD3DXMESH>();
+	m_pClearSphere->Init(m_hWnd,DEVICE,DCONTEXT,(LPSTR)"Sphere.x");
+	m_pClearSphere->m_Pos = D3DXVECTOR3(-23.0f, 18.6f, 201.8f);
+	//m_pClearSphere->m_Pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 
 
-	//崖をぶらさがる
+	//崖を昇るスフィア
 	SetVisualDirectory();
-	m_pShimmyShpere7 = make_shared<CD3DXMESH>();
-	m_pShimmyShpere7->Init(m_hWnd,DEVICE,DCONTEXT,(LPSTR)"Sphere.x");
+	m_pClimeSphere = make_shared<CD3DXMESH>();
+	m_pClimeSphere->Init(m_hWnd, DEVICE, DCONTEXT, (LPSTR)"Sphere.x");
+	m_pClimeSphere->m_Pos = D3DXVECTOR3(-23.9, 6.5, 198.3);
 
 	//============================================================================
 	//SKINMESH
@@ -182,6 +193,19 @@ HRESULT DIRECTOR::InitStage1()
 	m_keyC = make_shared<SPRITE>
 		(DCONTEXT, (LPSTR)"C_KEY.png", 94, 92);
 
+
+	//============================================================================
+	//ステージクリア
+	//============================================================================
+	SetRootDirectory();
+	m_pStage1Clear = make_unique<SPRITE>
+		(DCONTEXT, (LPSTR)"STAGE1CLEAR.png", 801, 141);
+
+
+	SetRootDirectory();
+	m_pBackGround = make_unique<SPRITE>
+		(DCONTEXT, (LPSTR)"BackGround.png", 600, 400);
+
 	//=============================================================
 	//Updateラベル
 	//=============================================================
@@ -207,7 +231,7 @@ HRESULT DIRECTOR::InitStage1()
 	//サウンド読み込み
 	//============================================================================
 	SetSoundDirectory();
-	m_pSound->LoadSound("Paranomal_2.wav");
+	m_pSound->LoadSound("m1.wav");
 
 
 

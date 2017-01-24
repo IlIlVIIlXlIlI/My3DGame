@@ -13,23 +13,17 @@ void DIRECTOR::Opening()
 	/*FadeIn*/
 	//m_pFadeIn->Render(D3DXVECTOR3(0, 0, 0));
 	
-	/*TitlePlayer*/
-	m_pTitlePlayer->Render(D3DXVECTOR3(330, 0, 0),1.4f);
+	
 
 	/*PressEnterラベル*/
-	m_pPressEnter->Render(D3DXVECTOR3(250, 350, 0),1.0f);
-
-	/*Exiteラベル*/
-	m_pExit->Render(D3DXVECTOR3(250, 440, 0),1.0f);
+	//m_pPressEnter->Render(D3DXVECTOR3(250, 350, 0),1.0f);
 
 
-	/*Noタイトルラベル*/
-	m_pTitle->Render(D3DXVECTOR3(0,0,0),1.0f);
-
+	
 	
 
 
-
+	
 	//m_pSound->PlaySound(0, false);
 
 	//=====================================================================
@@ -39,7 +33,26 @@ void DIRECTOR::Opening()
 	//Enterキー
 	if (GetAsyncKeyState(VK_RETURN) && 0x8000)
 	{
+		m_pNowLod->Render(D3DXVECTOR3((WINDOW_WIDTH / 4), (WINDOW_HEIGHT / 2) + 100, 0), 1.0f);
 		m_Scene = INIT_STAGE1;
+	}
+	else
+	{
+		/*StartGameラベル*/
+		m_pStartGame->Render(D3DXVECTOR3((WINDOW_WIDTH / 8) - 50, (WINDOW_HEIGHT / 2) + 100, 0), 1.0f);
+
+		/*Exiteラベル*/
+		m_pExit->Render(D3DXVECTOR3((WINDOW_WIDTH / 8), (WINDOW_HEIGHT / 2) + 150, 0), 1.0f);
+
+
+		/*Noタイトルラベル*/
+		m_pTitle->Render(D3DXVECTOR3((WINDOW_WIDTH / 6), (WINDOW_HEIGHT / 3), 0), 0.6f);
+
+
+		/*TitlePlayer*/
+		m_pTitlePlayer->Render(D3DXVECTOR3((WINDOW_WIDTH / 2) + 120, (WINDOW_HEIGHT / 5) - 10, 0), 0.4f);
+
+
 	}
 
 

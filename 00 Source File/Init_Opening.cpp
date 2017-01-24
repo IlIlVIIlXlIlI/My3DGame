@@ -7,7 +7,7 @@ HRESULT DIRECTOR::InitOpening()
 	//タイトル画面
 	//=====================================================================
 	m_pTitle = make_unique<SPRITE>
-		(DCONTEXT, (LPSTR)"Title.png", WINDOW_WIDTH, WINDOW_HEIGHT);
+		(DCONTEXT, (LPSTR)"Forest Escape.png", 837, 138);
 
 
 
@@ -18,13 +18,19 @@ HRESULT DIRECTOR::InitOpening()
 		(DCONTEXT, (LPSTR)"PressEnter.png", 464, 75);
 
 
+
+	//=====================================================================
+	//StartGameのボタン
+	//=====================================================================
+	m_pStartGame = make_unique<SPRITE>
+		(DCONTEXT, (LPSTR)"StartGame.png", 800, 47);
+
+
 	//=====================================================================
 	//Exitのボタン
 	//=====================================================================
 	m_pExit = make_unique<SPRITE>
-		(DCONTEXT, (LPSTR)"Exit.png", 464, 75);
-
-
+		(DCONTEXT, (LPSTR)"Exit.png", 800, 47);
 
 
 
@@ -40,11 +46,12 @@ HRESULT DIRECTOR::InitOpening()
 	//TitlePlayer
 	//=====================================================================
 	m_pTitlePlayer = make_unique<SPRITE>
-		(DCONTEXT, (LPSTR)"titlePlayer.png", 493, 425);
+		(DCONTEXT, (LPSTR)"titlePlayer.png", 764, 723);
 
 
 
-
+	m_pNowLod = make_unique<SPRITE>
+		(DCONTEXT, (LPSTR)"NowLoading.png", 800, 47);
 
 	//=====================================================================
 	//シーンをオープニングへ

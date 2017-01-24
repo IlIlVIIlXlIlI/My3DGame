@@ -68,20 +68,20 @@ float COLLISION::RayGetDistance(HWND m_hWnd,ChrBase* _pMeshA, CD3DXMESH* _pMeshB
 	if (RayIntersect(_pMeshA, _pMeshB, &fDistance, &dwIndex) && fDistance <= RAY_DISTANCE)
 	{
 		char Str[MAX_PATH + 1];
-		sprintf(Str, "レイが相手メッシュと交差しています。距離 : %3.2f 交差しているポリゴンの番号は%d", fDistance, dwIndex);
-		SetWindowTextA(m_hWnd, Str);
+		//sprintf(Str, "レイが相手メッシュと交差しています。距離 : %3.2f 交差しているポリゴンの番号は%d", fDistance, dwIndex);
+		//SetWindowTextA(m_hWnd, Str);
 	}
 	else
 	{
-		SetWindowTextA(m_hWnd, "交差無し");
+		//SetWindowTextA(m_hWnd, "交差無し");
 	}
 
 	if (fDistance <= 1.5f)
 	{
 		char Str[MAX_PATH + 1];
 		//	assert((fDistance <= 1.5f) && "XXX:不正な数値です");
-		sprintf(Str, "レイが相手メッシュと交差しています。距離 : %3.2f 交差しているポリゴンの番号は%d", fDistance, dwIndex);
-		SetWindowTextA(m_hWnd, Str);
+		//sprintf(Str, "レイが相手メッシュと交差しています。距離 : %3.2f 交差しているポリゴンの番号は%d", fDistance, dwIndex);
+		//SetWindowTextA(m_hWnd, Str);
 		//m_pPlayer->m_Pos = D3DXVECTOR3(0, 0, 0);
 	}
 

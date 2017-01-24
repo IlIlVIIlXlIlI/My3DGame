@@ -66,7 +66,8 @@ private:
 	shared_ptr<CD3DXMESH>		m_pSkyBox;				//空
 	shared_ptr<CD3DXMESH>		m_pMoveRock;			//岩
 	shared_ptr<CD3DXMESH>		m_pOpenRock;			//開く岩
-	shared_ptr<CD3DXMESH>		m_pPillar;
+	shared_ptr<CD3DXMESH>		m_pPillar;				//柱
+	shared_ptr<CD3DXMESH>		m_pIvy;					//ツタ
 	
 	//=============================================================
 	//DEBUG STRING
@@ -81,15 +82,24 @@ private:
 	/*タイトルで使う*/
 	unique_ptr<SPRITE>			m_pTitle;
 	unique_ptr<SPRITE>			m_pPressEnter;
-	unique_ptr<SPRITE>			m_pExit;
+	
 	unique_ptr<SPRITE>			m_pTitlePlayer;
 	unique_ptr<SPRITE>			m_pFadeIn;
+
+	unique_ptr<SPRITE>			m_pStartGame;
+	unique_ptr<SPRITE>			m_pExit;
+
+	unique_ptr<SPRITE>			m_pNowLod;
+
 
 	/*本編で使う*/
 	unique_ptr<SPRITE>			m_pBlackBar;
 	unique_ptr<SPRITE>			m_pUpdateLabel;
 	unique_ptr<SPRITE>			m_pEscapeRoot;
 	unique_ptr<SPRITE>			m_pElseRoot;
+
+	unique_ptr<SPRITE>			m_pStage1Clear;
+	unique_ptr<SPRITE>			m_pBackGround;
 	//=============================================================
 	//Xスキンメッシュアニメーションの作成
 	//=============================================================
@@ -115,8 +125,8 @@ private:
 	CD3DXMESH*					m_pCliff_Sphere3;			//崖を渡るのスフィア
 	shared_ptr<CD3DXMESH>		m_pCave_Sphere4;			//洞窟のスフィア
 	shared_ptr<CD3DXMESH>		m_pDropAndOpenRock5;		//落ちてくる岩と開く岩スフィア
-	shared_ptr<CD3DXMESH>		m_pClimeEndSphere6;			//崖を登り終える
-	shared_ptr<CD3DXMESH>		m_pShimmyShpere7;
+	shared_ptr<CD3DXMESH>		m_pClearSphere;				//クリアスフィア
+	shared_ptr<CD3DXMESH>		m_pClimeSphere;				//崖を昇るスフィア
 	//=============================================================
 	//球との当たり判定
 	//=============================================================

@@ -68,6 +68,11 @@ void DIRECTOR::Stage1()
 		m_pCamera->m_CamStatus = CAMERA::GETTING_UP;
 	}
 
+	if (m_pPlayer->m_PlayerStatus == Player::COVER_LEFT_STATUS)
+	{
+		//m_pCamera->m_CamStatus = CAMERA::GETTING_UP;
+	}
+
 	m_pCamera->mCPos.x += m_pPlayer->mTrans._41;
 	m_pCamera->mCPos.y += m_pPlayer->mTrans._42;
 	m_pCamera->mCPos.z += m_pPlayer->mTrans._43;
@@ -128,7 +133,11 @@ void DIRECTOR::Stage1()
 	}
 	
 	/*柱*/
-	m_pPillar->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
+	//m_pPillar->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
+
+
+	/*ツタ*/
+	m_pIvy->Render(mView, mProj, D3DXVECTOR3(0, -1, 0), m_pCamera->CLook);
 
 	//m_pCave_Sphere4->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
 
@@ -169,11 +178,14 @@ void DIRECTOR::Stage1()
 	/*落ちてくる岩と開くスフィア5*/
 	objToSphere(m_pDropAndOpenRock5.get(), m_pSphereMesh.get());
 
-	/*登り終えたときのスフィア6*/
-	objToSphere(m_pClimeEndSphere6.get(), m_pSphereMesh.get());
+	
 
-	/*ぶら下がる箇所のスフィア7*/
-	objToSphere(m_pShimmyShpere7.get(), m_pSphereMesh.get());
+	/*クリアのスフィア7*/
+	objToSphere(m_pClearSphere.get(), m_pSphereMesh.get());
+
+
+	/*崖を昇るスフィア*/
+	objToSphere(m_pClimeSphere.get(), m_pSphereMesh.get());
 
 
 	/*2キーでスフィア可視化*/
@@ -191,10 +203,11 @@ void DIRECTOR::Stage1()
 			m_pCave_Sphere4->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
 			///*落ちてくる岩と開くスフィアを可視化*/
 			m_pDropAndOpenRock5->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
-			///*登り終えるスフィアを可視化*/
-			m_pClimeEndSphere6->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
-			///*ぶら下がるスフィアを可視化*/
-			m_pShimmyShpere7->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
+			///*クリアスフィアを可視化*/
+			m_pClearSphere->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
+			///*崖を昇るスフィアを可視化*/
+			m_pClimeSphere->Render(mView, mProj, D3DXVECTOR3(0, 1, 0), m_pCamera->CLook);
+
 		}
 	}
 	else
@@ -213,10 +226,10 @@ void DIRECTOR::Stage1()
 	if (Collision(m_pPlayerSphere, m_pMoveRock_Sphere1))
 	{
 
-		SetWindowTextA(m_hWnd, "衝突しています");
+	//	SetWindowTextA(m_hWnd, "衝突しています");
 
 		//キーの連打が8.0f以下
-		if (m_pPlayer->KeyPanch <= 8.0f)
+		if (m_pPlayer->KeyPanch <= 6.0f)
 		{
 			
 
@@ -250,7 +263,7 @@ void DIRECTOR::Stage1()
 
 			m_pPlayer->KeyPanch -= 0.001;
 
-			if (m_pPlayer->KeyPanch >= 5.0)
+			if (m_pPlayer->KeyPanch >= 3.0)
 			{
 				m_pPlayer->m_PushinFlg = TRUE;
 			}
@@ -260,7 +273,7 @@ void DIRECTOR::Stage1()
 			}
 		}
 		
-		if (m_pPlayer->KeyPanch >= 8.0f)
+		if (m_pPlayer->KeyPanch >= 6.0f)
 		{
 			m_pPlayer->m_PushRockFlg = FALSE;	//今押していない
 			m_pPlayer->m_PushinFlg = FALSE;		//今押し込んでいない
@@ -302,7 +315,7 @@ void DIRECTOR::Stage1()
 	/*クライミング*/
 	if (Collision(m_pPlayerSphere, m_pCliff_Sphere2))
 	{
-		SetWindowTextA(m_hWnd, "衝突しています");
+		
 		m_pPlayer->m_ClimingFlg = TRUE;
 		/*Cキースプライト*/
 		m_keyC->Render(D3DXVECTOR3((WINDOW_WIDTH / 2) - 40, (WINDOW_HEIGHT / 2) + 80, 0),1.0f);
@@ -311,7 +324,7 @@ void DIRECTOR::Stage1()
 	/*壁歩き*/
 	if (Collision(m_pPlayerSphere, m_pCliff_Sphere3))
 	{
-		SetWindowTextA(m_hWnd, "衝突しています");
+	
 		m_pPlayer->m_CoverFlg = TRUE;
 		/*Eキースプライト*/
 		m_keyE->Render(D3DXVECTOR3((WINDOW_WIDTH / 2) - 40, (WINDOW_HEIGHT / 2) + 80, 0),1.0f);
@@ -321,7 +334,7 @@ void DIRECTOR::Stage1()
 	/*岩くぐり*/
 	if (Collision(m_pPlayerSphere, m_pCave_Sphere4.get()))
 	{
-		SetWindowTextA(m_hWnd, "衝突しています");
+		
 
 		if (GetAsyncKeyState('E') && 0x8000)
 		{
@@ -332,14 +345,22 @@ void DIRECTOR::Stage1()
 		m_keyE->Render(D3DXVECTOR3((WINDOW_WIDTH / 2) - 40, (WINDOW_HEIGHT / 2) + 80, 0),1.0f);
 	}
 
+
+	//デバッグ用キー解除
+	if (GetAsyncKeyState('U') && 0x8000)
+	{
+		m_pPlayer->squatStatusFlg = FALSE;
+	}
+
+
 	static bool moveRockFlg = 0;
 	static float moveRockDrop = 40.0;
 	/*落ちてくる岩と開く*/
 	if (Collision(m_pPlayerSphere, m_pDropAndOpenRock5.get()))
 	{
-		SetWindowTextA(m_hWnd, "衝突しています");	
 		moveRockFlg = 1;
 		openRockFlg = FALSE;
+		m_LabelCal->updateFlg = TRUE;
 
 	}
 	if (moveRockFlg == 1)
@@ -350,28 +371,14 @@ void DIRECTOR::Stage1()
 		if (moveRockDrop <= 18.6)moveRockDrop = 18.6;
 	}
 
-	/*崖を登り終える*/
-	/*if (GetAsyncKeyState('L') && 0x8000)
+	/*崖を昇るスフィア*/
+	if (Collision(m_pPlayerSphere, m_pClimeSphere.get()))
 	{
-		m_pPlayer->m_ClimeEndFlg = TRUE;
-	}*/
-	/*if (Collision(m_pPlayerSphere,m_pClimeEndSphere6.get()))
-	{
-		SetWindowTextA(m_hWnd, "ここで登り終えるよ！");
-		m_pPlayer->m_ClimeEndFlg = TRUE;
+		m_pPlayer->m_ClimingFlg = TRUE;
+		/*Cキースプライト*/
+		m_keyC->Render(D3DXVECTOR3((WINDOW_WIDTH / 2) - 40, (WINDOW_HEIGHT / 2) + 80, 0), 1.0f);
 	}
 
-	if (m_pPlayer->m_ClimeEndCount >= 30)
-	{
-		m_pPlayer->m_Pos = D3DXVECTOR3(1.0f, 14.6f, 36.2f);
-	}*/
-
-
-	/*ぶら下がるスフィアとの当たり判定*/
-	if (Collision(m_pPlayerSphere, m_pShimmyShpere7.get()))
-	{
-
-	}
 	//==============================================================================================
 	//視錘台カリング
 	//==============================================================================================
@@ -428,16 +435,13 @@ void DIRECTOR::Stage1()
 	
 
 
-	//==============================================================================================
-	//Sound 
-	//==============================================================================================
-	//m_pSound->PlaySound(0,false);
+	m_pSound->PlaySound(0, false);
 
 	//==============================================================================================
 	//DEBUG STRING
 	//==============================================================================================
 #ifdef _DEBUG
-	char sz[512] = { 0 };
+	/*char sz[512] = { 0 };
 	sprintf_s(sz, "X = %0.3f", m_pPlayer->m_Pos.x);
 	m_pText->Render(sz, 0, 70);
 
@@ -451,12 +455,28 @@ void DIRECTOR::Stage1()
 
 	char sz4[512] = { 0 };
 	sprintf_s(sz4, "KeyPanch = %0.2f", m_pPlayer->KeyPanch);
-	m_pText->Render(sz4, 0, 160);
+	m_pText->Render(sz4, 0, 160);*/
 
-	char sz5[512] = { 0 };
-	sprintf_s(sz4, "moveRockStartFlg %d", moveRockStartFlg);
-	m_pText->Render(sz4, 0, 190);
+	
+	static float clearCount = 0.0f;
+	/*クリアスフィアとの当たり判定*/
+	if (Collision(m_pPlayerSphere, m_pClearSphere.get()))
+	{
 
+		
+		clearCount++;
+
+		if (clearCount >= 500)
+		{
+			m_pBackGround->Render(D3DXVECTOR3((WINDOW_WIDTH / 6), (WINDOW_HEIGHT / 8), 0), 1.0);
+		}
+		else
+		{
+			m_pStage1Clear->Render(D3DXVECTOR3((WINDOW_WIDTH / 12), (WINDOW_HEIGHT / 6), 0), 1);
+		}
+
+
+	}
 	//==================
 	//デバッグキー
 	//==================
@@ -465,10 +485,21 @@ void DIRECTOR::Stage1()
 	{
 		m_pPlayer->m_Pos = D3DXVECTOR3(-77.9, 6.8, 122.5);
 	}
+
+	if (GetAsyncKeyState('J') && 0x8000)
+	{
+		m_pPlayer->m_Pos = D3DXVECTOR3(0, 0, 0);
+	}
+
+	if (GetAsyncKeyState('K') && 0x8000)
+	{
+		m_pPlayer->m_Pos = D3DXVECTOR3(-23.9, 6.5, 197.6);
+	}
+
 	//==================
 	//レイの描画
 	//==================
-	m_pPlayer->RenderRay(mView, mProj, D3DXVECTOR3(0, 0, 1), RAY_DISTANCE);
+	//m_pPlayer->RenderRay(mView, mProj, D3DXVECTOR3(0, 0, 1), RAY_DISTANCE);
 
 
 #endif
